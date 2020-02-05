@@ -3,6 +3,8 @@ apt-get install apache2 -y
 
 systemctl start apache2
 systemctl enable apache2
+a2enmod rewrite
+systemctl restart apache2
 
 add-apt-repository ppa:ondrej/php
 apt-get update -y
@@ -12,3 +14,6 @@ apt install -y php7.1 php7.1-xml php7.1-mbstring php7.1-mysql php7.1-json php7.1
 cd ~
 curl -sS https://getcomposer.org/installer | php
 mv composer.phar /usr/bin/composer
+
+
+cp 000-default.conf /etc/apache2/sites-available/000-default.conf
